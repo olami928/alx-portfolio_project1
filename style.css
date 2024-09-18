@@ -1,70 +1,86 @@
+/* Basic Reset */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 html {
     font-family: 'Courier New', Courier, monospace;
 }
-.section {
+
+body, .section {
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
+/* Slideshow Background */
+body {
+    background-size: cover;
+    background-position: center;
+    animation: changeBackground 150s infinite;
+}
+
+@keyframes changeBackground {
+    0% { background-image: url('advice_img-1.jpg'); }
+    20% { background-image: url('advice_img-1.jpg'); }
+    20.01% { background-image: url('advice_img-2.jpg'); }
+    40% { background-image: url('advice_img-2.jpg'); }
+    40.01% { background-image: url('advice_img-3.jpg'); }
+    60% { background-image: url('advice_img-3.jpg'); }
+    60.01% { background-image: url('advice_img-4.jpg'); }
+    80% { background-image: url('advice_img-4.jpg'); }
+    80.01% { background-image: url('advice_img-5.jpg'); }
+    100% { background-image: url('advice_img-5.jpg'); }
+}
+
+/* Page Styling */
 .page {
     width: 32vw;
     height: 38vh;
-    background-color: grey;
-    color: azure;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent to blend with background */
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
     align-items: center;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px black;
-    padding: 20px 20px 0px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
 }
 
 .adviceno {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: green;
+    color: lightgreen;
     letter-spacing: 5px;
 }
 
 .author {
     font-weight: bold;
-    font-size: 1.5rem;
-    color: aqua;
+    font-size: 1.8rem;
+    color: lightblue;
 }
 
 .advice {
-    height: 50%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .divider {
     background: url("pattern-divider-desktop.svg") no-repeat center;
-    background-size: cover;
+    background-size: contain;
     height: 15px;
     width: 80%;
 }
 
 .change {
     position: relative;
-    bottom: -10px;
-    left: 0;
-    transform: translateY(50%);
     padding: 25px;
     background: rgb(17, 212, 66);
     border-radius: 50%;
@@ -72,17 +88,14 @@ html {
 }
 
 .imgIcon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
 }
 
+/* Mobile Styling */
 @media screen and (max-width: 325px) {
     .adviceno {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
     .divider {
         background: url("pattern-divider-mobile.svg") no-repeat center;
@@ -94,8 +107,7 @@ html {
         height: 50vh;
     }
     .author {
-        font-size: 1.8rem;
-        font-family: 800;
+        font-size: 1.5rem;
     }
     .imgIcon {
         width: 40px;
